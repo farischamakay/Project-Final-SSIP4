@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<style>
+    .button{
+      background-color: lightblue;
+      border: none;
+      color: white;
+      padding: 8px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 5px 2px;
+      cursor: pointer;
+    }
+
+    
+    </style>
+<h1>Rarity</h1>
+<ul>
+{% for rarity in raritys %}
+    <li><strong>{{ rarity }}</strong> <a href="{% url 'edit_rarity' rarity.id %}" class="button" >Edit</a> <a href="{% url 'delete_rarity' rarity.id %}" class ="button">Delete</a></li>
+{% endfor %}
+</ul>
+<p>
+    <a href="{% url 'add_rarity' %}"><b>Add Tier</b></a>
+</p>
+{% endblock %}
