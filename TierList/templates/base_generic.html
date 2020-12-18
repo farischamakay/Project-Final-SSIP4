@@ -108,25 +108,26 @@ a.ex5:hover, a.ex5:active {
     Your browser does not support HTML5 video.
   </video>
   <div class="container-fluid">
-    {% block sidebar %}
+
     <ul class="sidebar-nav">
       <li><img src=https://psmedia.playstation.com/is/image/psmedia/genshin-impact-badge-01-ps4-en-02sep19_1567414089814?$HugeHero_Badge$ alt="Girl in a jacket" width="120" height="60"></li>
         <a class = "ex5" href="{% url 'index' %}"><i class="fa fa-fw fa-home"></i>Home</a>
         <a class = "ex5" href="{% url 'characters' %}">Character</a>
         <a class = "ex5" href="{% url 'raritys' %}">Raritys</a>   
-        {%if user.is_authenticated%}
-          <li>User: {{ user.get_username}}</li>
-          <a class = "ex5" href="{%url 'logout' %}?next={{ request.path }}">Log Out</a>
-        {%else%}
-          <a class = "ex5" href= "{%url 'login' %}?next={{ request.path }}\">Log In</a>
-        {%endif%}
+          {% if user.is_authenticated %}
+          <li>User: {{ user.get_username}}</li> 
+          Hello, {{ user.get_username }}
+          <a href="{% url 'logout' %}?next={{ request.path }}">Log Out</a>
+          {% else %}
+          {% if 'login' in request.path %}
+          <a href="{% url 'login' %}?next={{ '/' }}">Log In</a>
+          {% else %}
+          <a href="{% url 'login' %}?next={{ request.path }}">Log In</a>
+          {% endif %}
+          {% endif %}
     </ul>
-    {% endblock %}
-</div>
+  </div>
 <div class="col-sm-10 ">{% block content %}{% endblock %}</div>
-</div>
-</div>
   </section>
 </body>
-
 </html>
