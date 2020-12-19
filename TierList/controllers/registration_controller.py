@@ -15,7 +15,7 @@ def index(request):
         try:  # we try to find existing user first, if exists show error
             user = User.objects.get(username=username)
             msg = 'Username or E-Mail is already registered'
-        except user.DoesNotExist:  # user not found, then register, send email
+        except user.DoesNotExist:            
             user = User.objects.create_user(username, email, password)  # register user
             user.save()  # save to db
             msg = ''  # empty message, no error, then send mail using configured EMAIL_HOST_USER
