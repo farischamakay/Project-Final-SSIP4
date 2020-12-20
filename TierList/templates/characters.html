@@ -15,16 +15,20 @@
       cursor: pointer;
     }
 
-    </style>
+    .white{
+        color:darkblue;
+    }
+
+</style>
 <h1> Character </h1>
 
 <ul>
 {% for character in characters %}
-    <li><strong> {{ character.name }}</strong> ({{ character.rarity }}) <a href="{% url 'edit_character' character.id %}" class = "button">Edit</a>  <a href="{% url 'delete_character' character.id %}" class = "button">Delete</a></li>
+    <li><strong> {{ character.name }}</strong> ({{ character.rarity }}) <a href="{% url 'edit_character' character.id %}" class = "button">Edit</a><a href="{% url 'delete_character' character.id %}" class = "button">Delete</a></li>
 {% endfor %}
 </ul>
 <p>
-    <a href="{% url 'add_character' %}"><b>Add Character</b></a>
+    <a class = "white" href="{% url 'add_character' %}"><b>Add Character</b></a>
 </p>
 
 {% endblock %}

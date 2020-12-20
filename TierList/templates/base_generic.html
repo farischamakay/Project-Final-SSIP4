@@ -9,14 +9,11 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Add additional CSS in static file -->
-   
-
     <style>
 
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
- 
 }
 
 .sidebar-nav {
@@ -38,12 +35,18 @@ body {
   font-size: 17px;
 }
 
-
-li {
+.left {
   float: left;
 }
 
+.Username {
+  float: left;
+  color:white;
+  list-style-type: none;
+  font-size:17px;
+  margin-top:14px;
 
+}
 
 
 li a {
@@ -65,8 +68,9 @@ li a {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -10;
+  z-index: -1;
 }
+
 #myVideo {
   position: fixed;
   left : -74px;
@@ -101,7 +105,7 @@ a.ex5:hover, a.ex5:active {
     </style>
 </head>
 
-<body >
+<body>
   <section>
   <video autoplay loop class="video-background" muted plays-inline>
     <source src="https://genshin.mihoyo.com/_nuxt/videos/3e78e80.mp4" type="video/mp4">
@@ -110,14 +114,13 @@ a.ex5:hover, a.ex5:active {
   <div class="container-fluid">
 
     <ul class="sidebar-nav">
-      <li><img src=https://psmedia.playstation.com/is/image/psmedia/genshin-impact-badge-01-ps4-en-02sep19_1567414089814?$HugeHero_Badge$ alt="Girl in a jacket" width="120" height="60"></li>
+      <li class= "left"><img src=https://psmedia.playstation.com/is/image/psmedia/genshin-impact-badge-01-ps4-en-02sep19_1567414089814?$HugeHero_Badge$ alt="Girl in a jacket" width="120" height="60"></li>
         <a class = "ex5" href="{% url 'index' %}"><i class="fa fa-fw fa-home"></i>Home</a>
         <a class = "ex5" href="{% url 'characters' %}">Character</a>
         <a class = "ex5" href="{% url 'raritys' %}">Raritys</a>   
          
         {% if user.is_authenticated %}
-          <li>User: {{ user.get_username}}</li> 
-          Hello, {{ user.get_username }}
+          <li class ="Username">User: {{ user.get_username}}</li> 
           <a href="{% url 'logout' %}?next={{ request.path }}">Log Out</a>
           {% else %}
           {% if 'login' in request.path %}
