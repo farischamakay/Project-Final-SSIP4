@@ -21,14 +21,14 @@
     pelase login with an account that has access.
 </p>
 {%else%}
-<p></br></p>
-<p></br></p>
 {%endif%}
 {%endif%}
 
 <form  method="post" action="{%url 'login'%}">
     {%csrf_token%}
     <table>
+        <p></br></p>
+        <p></br></p>
         <tr>
             <td>{{form.username.label_tag}}</td>
             <td class = "position">{{form.username}}</td>
