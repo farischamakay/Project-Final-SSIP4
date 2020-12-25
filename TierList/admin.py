@@ -4,6 +4,3 @@ from .models import Character, Rarity
 admin.site.register(Character)
 admin.site.register(Rarity)
 
-
-
-# Register your models here.

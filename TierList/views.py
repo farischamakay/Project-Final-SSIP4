@@ -13,7 +13,6 @@ def index(request):
         return HttpResponseRedirect(reverse('login'))
     num_visits = request.session.get('num_visits', 1)
     request.session['num_visits'] = num_visits + 1
-    # get all info here including authors, books, and genres
     num_characters = Character.objects.all().count()
     num_raritys = Rarity.objects.all().count()
     context = {
@@ -36,7 +35,7 @@ def add_character(request):
     if request.method == 'POST':
         form = CharacterForm(request.POST)
         if form.is_valid():
-            form.save()  # directly save the form
+            form.save()  
             return HttpResponseRedirect(reverse('characters'))
     else:
         form = CharacterForm()
@@ -88,7 +87,7 @@ def add_rarity(request):
     if request.method == 'POST':
         form = RarityForm(request.POST)
         if form.is_valid():
-            form.save()  # directly save the form
+            form.save()  
             return HttpResponseRedirect(reverse('raritys'))
     else:
         form = RarityForm()
