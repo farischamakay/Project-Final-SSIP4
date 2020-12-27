@@ -22,7 +22,6 @@ def index(request):
     }
     return render(request, 'index.html', context=context)
 
-@login_required
 def list_characters(request):
     characters = Character.objects.all()
     context = {
@@ -30,7 +29,7 @@ def list_characters(request):
     }
     return render(request, 'characters.html', context=context)
 
-
+@login_required
 def add_character(request):
     if request.method == 'POST':
         form = CharacterForm(request.POST)
@@ -45,7 +44,7 @@ def add_character(request):
     }
     return render(request, 'character_form.html', context=context)
 
-
+@login_required
 def edit_character(request, character_id):
     if request.method == 'POST':
         character = Character.objects.get(pk=character_id)
@@ -63,7 +62,7 @@ def edit_character(request, character_id):
     }
     return render(request, 'character_form.html', context=context)
 
-
+@login_required
 def delete_character(request, character_id):
     character = Character.objects.get(pk=character_id)
     if request.method == 'POST':
@@ -74,7 +73,6 @@ def delete_character(request, character_id):
     }
     return render(request, 'character_delete_form.html', context=context)    
 
-@login_required
 def list_raritys(request):
     raritys = Rarity.objects.all()
     context = {
@@ -82,7 +80,7 @@ def list_raritys(request):
     }
     return render(request, 'raritys.html', context=context)
 
-
+@login_required
 def add_rarity(request):
     if request.method == 'POST':
         form = RarityForm(request.POST)
@@ -97,6 +95,7 @@ def add_rarity(request):
     }
     return render(request, 'rarity_form.html', context=context)
 
+@login_required
 def edit_rarity(request, rarity_id):
     if request.method == 'POST':
         rarity = Rarity.objects.get(pk=rarity_id)
@@ -114,6 +113,7 @@ def edit_rarity(request, rarity_id):
     }
     return render(request, 'rarity_form.html', context=context)    
 
+@login_required
 def delete_rarity(request, rarity_id):
     rarity = Rarity.objects.get(pk=rarity_id)
     if request.method == 'POST':
