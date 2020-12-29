@@ -118,7 +118,6 @@ a.ex5:hover, a.ex5:active {
         <a class = "ex5" href="{% url 'index' %}"><i class="fa fa-fw fa-home"></i>Home</a>
         <a class = "ex5" href="{% url 'characters' %}">Character</a>
         <a class = "ex5" href="{% url 'raritys' %}">Raritys</a>   
-        <a class = "ex5" href="{% url 'element_index' %}">Element</a>   
          
         {% if user.is_authenticated %}
           <li class ="Username">User: {{ user.get_username}}</li> 
