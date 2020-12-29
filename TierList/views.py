@@ -3,8 +3,10 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-from TierList.models import Character, Rarity
-from TierList.forms import CharacterForm, RarityForm 
+from TierList.models.character import Character
+from TierList.models.rarity import Rarity
+from TierList.models.element import Element
+from TierList.forms import CharacterForm, RarityForm
 
 
 @login_required
@@ -15,10 +17,11 @@ def index(request):
     request.session['num_visits'] = num_visits + 1
     num_characters = Character.objects.all().count()
     num_raritys = Rarity.objects.all().count()
+    num_elements = Element.objects.all().count()  
     context = {
         'num_characters' : num_characters,
         'num_raritys': num_raritys,
-        'total_visit': num_visits,
+        'num_elements': num_elements,
     }
     return render(request, 'index.html', context=context)
 
@@ -122,4 +125,11 @@ def delete_rarity(request, rarity_id):
     context = {
         'raritys': rarity,
     }
-    return render(request, 'rarity_delete_form.html', context=context)        
+    return render(request, 'rarity_delete_form.html', context=context)    
+
+def list_elements(request):
+    elements = Element.objects.all()
+    context = {
+        'elements': elements,
+    }
+    return render(request, 'elements.html', context=context)    

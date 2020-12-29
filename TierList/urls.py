@@ -1,6 +1,6 @@
 from Genshin.urls import path
 from . import views
-from TierList.controllers import registration_controller
+from TierList.controllers import registration_controller, character_controller, element_controller
 
 
 urlpatterns = [
@@ -16,5 +16,9 @@ urlpatterns = [
     path('rarity/edit/<int:rarity_id>', views.edit_rarity, name='edit_rarity'),
     path('rarity/delete/<int:rarity_id>', views.delete_rarity, name='delete_rarity'),
 
+    path('elements/', views.list_elements, name='elements'),
+
     path('register', registration_controller.index, name='register'),
+ 
+    
 ]

@@ -15,3 +15,4 @@ class RarityForm(ModelForm):
         model = Rarity  # model to use in form
         # list of fields to be displayed
         fields = ['level']
+
