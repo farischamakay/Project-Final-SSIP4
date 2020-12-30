@@ -21,8 +21,6 @@ def index(request):
     context = {
         'num_characters' : num_characters,
         'num_raritys': num_raritys,
- 
-        
     }
     return render(request, 'index.html', context=context)
 
@@ -31,7 +29,7 @@ def list_characters(request):
     context = {
         'characters': characters,
     }
-    return render(request, 'characters.html', context=context)
+    return render(request, 'character/characters.html', context=context)
 
 @login_required
 def add_character(request):
@@ -46,7 +44,7 @@ def add_character(request):
     context = {
         'form': form
     }
-    return render(request, 'character_form.html', context=context)
+    return render(request, 'character/character_form.html', context=context)
 
 @login_required
 def edit_character(request, character_id):
@@ -64,7 +62,7 @@ def edit_character(request, character_id):
         'form': form,
         'type': 'edit',
     }
-    return render(request, 'character_form.html', context=context)
+    return render(request, 'character/character_form.html', context=context)
 
 @login_required
 def delete_character(request, character_id):
@@ -75,14 +73,14 @@ def delete_character(request, character_id):
     context = {
         'character': character
     }
-    return render(request, 'character_delete_form.html', context=context)    
+    return render(request, 'character/character_delete_form.html', context=context)    
 
 def list_raritys(request):
     raritys = Rarity.objects.all()
     context = {
         'raritys': raritys,
     }
-    return render(request, 'raritys.html', context=context)
+    return render(request, 'rarity/raritys.html', context=context)
 
 @login_required
 def add_rarity(request):
@@ -97,7 +95,7 @@ def add_rarity(request):
     context = {
         'form': form
     }
-    return render(request, 'rarity_form.html', context=context)
+    return render(request, 'rarity/rarity_form.html', context=context)
 
 @login_required
 def edit_rarity(request, rarity_id):
@@ -115,7 +113,7 @@ def edit_rarity(request, rarity_id):
         'form': form,
         'type': 'edit',
     }
-    return render(request, 'rarity_form.html', context=context)    
+    return render(request, 'rarity/rarity_form.html', context=context)    
 
 @login_required
 def delete_rarity(request, rarity_id):
@@ -126,4 +124,4 @@ def delete_rarity(request, rarity_id):
     context = {
         'raritys': rarity,
     }
-    return render(request, 'rarity_delete_form.html', context=context)    
+    return render(request, 'rarity/rarity_delete_form.html', context=context)    

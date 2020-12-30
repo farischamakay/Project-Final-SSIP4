@@ -8,11 +8,11 @@ from TierList.models.weapon import Weapon
 class Character(models.Model):
     name = models.CharField(max_length=100)
     rarity = models.ForeignKey(Rarity, on_delete=models.SET_NULL, null=True) 
-    element = models.ManyToManyField(Element)
-    gender = models.ManyToManyField(Gender)
-    nation = models.ManyToManyField(Nation)
-    weapon = models.ManyToManyField(Weapon)
+    element = models.OneToOneField(Element, on_delete=models.CASCADE)
+    gender = models.OneToOneField(Gender, on_delete=models.CASCADE)
+    nation = models.OneToOneField(Nation, on_delete=models.CASCADE)
+    weapon = models.OneToOneField(Weapon, on_delete=models.CASCADE)
     app_label = 'TierList'
 
     def str(self):
-        return f'{self.name}'
+        return self.name

@@ -5,41 +5,35 @@ from TierList.models import Character, Rarity, Element, Gender, Nation, Weapon
 
 class CharacterForm(ModelForm):
     class Meta:
-        model = Character  # model to use in form
-        # list of fields to be displayed
+        model = Character
         fields = ['name', 'rarity', 'element', 'gender', 'nation', 'weapon']
 
 
 class RarityForm(ModelForm):
     class Meta:
-        model = Rarity  # model to use in form
-        # list of fields to be displayed
+        model = Rarity
         fields = ['level']
 
 
 class ElementForm(ModelForm):
     class Meta:
-        model = Element  # model to use in form
-        # list of fields to be displayed
+        model = Element
         fields = ['name']
 
 
 class GenderForm(ModelForm):
     class Meta:
-        model = Gender  # model to use in form
-        # list of fields to be displayed
+        model = Gender
         fields = ['gender']
 
 
 class NationForm(ModelForm):
     class Meta:
-        model = Nation  # model to use in form
-        # list of fields to be displayed
+        model = Nation
         fields = ['city']
 
 
 class WeaponForm(ModelForm):
     class Meta:
-        model = Weapon  # model to use in form
-        # list of fields to be displayed
+        model = Weapon
         fields = ['weapon']
