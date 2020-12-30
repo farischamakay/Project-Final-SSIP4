@@ -7,7 +7,7 @@ class CharacterForm(ModelForm):
     class Meta:
         model = Character  # model to use in form
         # list of fields to be displayed
-        fields = ['name', 'rarity']
+        fields = ['name', 'rarity', 'element', 'gender', 'nation', 'weapon']
 
 
 class RarityForm(ModelForm):
