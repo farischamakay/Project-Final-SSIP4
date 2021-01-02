@@ -6,7 +6,7 @@ from TierList.models import Character, Rarity, Element, Gender, Nation, Weapon
 class CharacterForm(ModelForm):
     class Meta:
         model = Character
-        fields = ['name', 'rarity', 'element', 'gender', 'nation', 'weapon']
+        fields = ['name', 'rarity']
 
 
 class RarityForm(ModelForm):
