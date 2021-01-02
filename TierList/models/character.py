@@ -8,9 +8,10 @@ from TierList.models.weapon import Weapon
 class Character(models.Model):
     name = models.CharField(max_length=50)
     rarity = models.ForeignKey(Rarity, on_delete=models.SET_NULL, null=True)
+   
     
 class Meta:
     app_label = 'TierList'
 
-    def __str__(self):
-        return self.name
+def __str__(self):
+    return self.name
