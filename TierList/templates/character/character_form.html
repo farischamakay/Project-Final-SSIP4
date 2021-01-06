@@ -3,9 +3,13 @@
 {% block content %}
 
 {% if type != 'edit' %}
-<h1>Add an character</h1>
+<br></br>
+<br></br>
+<h1>Add a character</h1>
 {% else %}
-<h1>Edit an character</h1>
+<br></br>
+<br></br>
+<h1>Edit a character</h1>
 {% endif %}
 <form action="" method="POST">
     {% csrf_token %}

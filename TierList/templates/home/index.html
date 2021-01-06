@@ -13,7 +13,9 @@
       margin: 5px 2px;
       cursor: pointer;
     }
-
+    .font{
+        font-weight: bold;
+    }
     .white{
         color:darkblue;
     }
@@ -34,7 +36,7 @@
 <div class="col-12">
     <table class="table table-sm table-bordered">
         <thead>
-            <tr>
+            <tr class="font">
                 <td>Character</td>
                 <td>Rarity</td>
                 <td>Gender</td>
@@ -45,7 +47,7 @@
         </thead>
         <tbody>
             {% for character in characters %}
-            <tr>
+            <tr  class="font">
                 <td>{{ character.name }}</td>
                 <td>{{ character.rarity }}</td>
                 <td>{{ character.gender.all|join:', ' }}</td>
