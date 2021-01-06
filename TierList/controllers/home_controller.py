@@ -9,8 +9,8 @@ from TierList.models.character import Character
 def index(request):
     if request.method == 'POST':
         req = request.POST.dict()
-
-        name = req['name']
+        # POST, get the request body parameter and filter 
+        name = req['character']
         characters = Character.objects.filter(name__contains=name)
     else:
         characters = Character.objects.all()  

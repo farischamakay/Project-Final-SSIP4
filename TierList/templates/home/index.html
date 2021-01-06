@@ -44,8 +44,8 @@
             </tr>
         </thead>
         <tbody>
+            {% for character in characters %}
             <tr>
-                {% for character in characters %}
                 <td>{{ character.name }}</td>
                 <td>{{ character.rarity }}</td>
                 <td>{{ character.gender }}</td>
@@ -54,12 +54,12 @@
                 <td>{{ character.element }}</td>
                 {% endfor %}
             </tr>
-
+            {% endfor %}
         </tbody>
     </table>
     <form method="post" action="">
         {% csrf_token %}
-        <input name="name" type="text"/>
+        <input name="character" type="text"/>
         <button type="submit">Search</button>
     </form>
 </div>
