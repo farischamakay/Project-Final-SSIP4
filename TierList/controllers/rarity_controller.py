@@ -12,7 +12,7 @@ def list_raritys(request):
     context = {
         'raritys': raritys,
     }
-    return render(request, 'raritys.html', context=context)
+    return render(request, 'rarity/raritys.html', context=context)
 
 @login_required
 def add_rarity(request):

@@ -11,7 +11,7 @@ def list_characters(request):
     context = {
         'characters': characters,
     }
-    return render(request, 'character/character_characters.html', context=context)
+    return render(request, 'character/characters.html', context=context)
 
 
 @login_required
@@ -36,7 +36,7 @@ def edit_character(request, character_id):
         form = CharacterForm(request.POST, instance=character)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('characters'))
+            return HttpResponseRedirect(reverse('character_characters'))
     else:
         character = Character.objects.get(pk=character_id)
         fields = model_to_dict(character)
@@ -52,7 +52,7 @@ def delete_character(request, character_id):
     character = Character.objects.get(pk=character_id)
     if request.method == 'POST':
         character.delete()
-        return HttpResponseRedirect(reverse('characters'))
+        return HttpResponseRedirect(reverse('character_characters'))
     context = {
         'character': character
     }
