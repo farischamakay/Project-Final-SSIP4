@@ -1,9 +1,9 @@
 from Genshin.urls import path
 from . import views
-from TierList.controllers import registration_controller, character_controller, rarity_controller, element_controller, gender_controller, nation_controller, weapon_controller
+from TierList.controllers import home_controller, registration_controller, character_controller, rarity_controller, element_controller, gender_controller, nation_controller, weapon_controller
 
 urlpatterns = [
-    path('', views.index, name='home_index'),
+    path('', home_controller.index, name='home_index'),
    
     path('character', character_controller.list_characters, name='character_characters'),
     path('character/add', character_controller.add_character, name='add_character'),
