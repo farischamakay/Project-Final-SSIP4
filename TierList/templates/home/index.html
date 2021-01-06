@@ -1,0 +1,62 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<style>
+    .button{
+      background-color: lightblue;
+      border: none;
+      color: white;
+      padding: 8px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 5px 2px;
+      cursor: pointer;
+    }
+
+    .white{
+        color:darkblue;
+    }
+
+    li{
+        font-size: 18px;
+    }
+
+</style>
+<br></br>
+<br></br>
+{% block title %}
+<title>
+    Home Page
+</title>
+{% endblock %}
+
+<div class="col-12">
+    <table class="table table-sm table-bordered">
+        <thead>
+            <tr>
+                <td>Character</td>
+                <td>Rarity</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                {% for character in characters %}
+                <td>{{ character.name }}</td>
+                <td>{{ character.rarity }}</td>
+                {% endfor %}
+            </tr>
+
+        </tbody>
+    </table>
+    <form method="post" action="">
+        {% csrf_token %}
+        <input name="name" type="text"/>
+        <button type="submit">Search</button>
+    </form>
+</div>
+{% endblock %}
+
+
+
+

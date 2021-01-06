@@ -33,5 +33,5 @@ def index(request):
         'num_nations': num_nations,
         'num_weapons': num_weapons,
     }
-    return render(request, 'index.html', context=context)
+    return render(request, 'home/index.html', context=context)
 
