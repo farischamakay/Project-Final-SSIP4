@@ -34,4 +34,3 @@ def index(request):
         'num_weapons': num_weapons,
     }
     return render(request, 'home/index.html', context=context)
-

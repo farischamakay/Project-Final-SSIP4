@@ -1,7 +1,9 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<h1>Deleting Character : {{ character }}</h1>
+<br></br>
+<br></br>
+<h1>Deleting Character : {{ character.name }}</h1>
 <form action="" method="POST">
     {% csrf_token %}
     <input type="submit" value="Confirm" class="btn btn-success"/>

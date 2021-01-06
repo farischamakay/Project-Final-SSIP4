@@ -1,5 +1,38 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<h1>HELLO</h1>
+<style>
+    .button{
+      background-color: lightblue;
+      border: none;
+      color: white;
+      padding: 8px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 5px 2px;
+      cursor: pointer;
+    }
+
+    .white{
+        color:darkblue;
+    }
+
+    li{
+        font-size: 18px;
+    }
+
+</style>
+<br></br>
+<br></br>
+<h1> Gender </h1>
+
+<ul>
+{% for gender in genders %}
+    <li><strong> {{ gender.name }}</strong> </li>
+{% endfor %}
+</ul>
+
+
 {% endblock %}

@@ -12,7 +12,7 @@ def list_raritys(request):
     context = {
         'raritys': raritys,
     }
-    return render(request, 'rarity/raritys.html', context=context)
+    return render(request, 'raritys.html', context=context)
 
 @login_required
 def add_rarity(request):
@@ -54,6 +54,6 @@ def delete_rarity(request, rarity_id):
         rarity.delete()
         return HttpResponseRedirect(reverse('raritys'))
     context = {
-        'raritys': rarity,
+        'rarity': rarity,
     }
     return render(request, 'rarity/rarity_delete_form.html', context=context)    

@@ -37,6 +37,10 @@
             <tr>
                 <td>Character</td>
                 <td>Rarity</td>
+                <td>Gender</td>
+                <td>Nation</td>
+                <td>Weapon</td>
+                <td>Element</td>
             </tr>
         </thead>
         <tbody>
@@ -44,6 +48,10 @@
                 {% for character in characters %}
                 <td>{{ character.name }}</td>
                 <td>{{ character.rarity }}</td>
+                <td>{{ character.gender }}</td>
+                <td>{{ character.nation }}</td>
+                <td>{{ character.weapon }}</td>
+                <td>{{ character.element }}</td>
                 {% endfor %}
             </tr>
 

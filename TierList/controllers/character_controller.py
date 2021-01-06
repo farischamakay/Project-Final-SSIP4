@@ -6,13 +6,13 @@ from django.urls import reverse
 from TierList.models.character import Character
 from TierList.forms import CharacterForm
 
-
 def list_characters(request):
     characters = Character.objects.all()
     context = {
         'characters': characters,
     }
-    return render(request, 'character/characters.html', context=context)
+    return render(request, 'character/character_characters.html', context=context)
+
 
 @login_required
 def add_character(request):
@@ -20,7 +20,7 @@ def add_character(request):
         form = CharacterForm(request.POST)
         if form.is_valid():
             form.save()  
-            return HttpResponseRedirect(reverse('characters'))
+            return HttpResponseRedirect(reverse('character_characters'))
     else:
         form = CharacterForm()
 
@@ -57,3 +57,4 @@ def delete_character(request, character_id):
         'character': character
     }
     return render(request, 'character/character_delete_form.html', context=context)    
+

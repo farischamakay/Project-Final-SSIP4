@@ -8,10 +8,15 @@ from TierList.models.weapon import Weapon
 class Character(models.Model):
     name = models.CharField(max_length=50)
     rarity = models.ForeignKey(Rarity, on_delete=models.SET_NULL, null=True)
+    element = models.ManyToManyField(Element)
+    gender = models.ManyToManyField(Gender)
+    nation = models.ManyToManyField(Nation)
+    weapon = models.ManyToManyField(Weapon)
+
    
     
 class Meta:
     app_label = 'TierList'
 
 def __str__(self):
-    return self.name
+    return f'{self.name}'
